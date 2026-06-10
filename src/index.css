@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fdfaf5;
+    color: #1c1917;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-charcoal-900 text-cream-50 font-body font-medium px-6 py-3 rounded-none
+           hover:bg-charcoal-800 transition-all duration-200 tracking-wide text-sm
+           border border-charcoal-900 hover:border-charcoal-800 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-charcoal-900 font-body font-medium px-6 py-3 rounded-none
+           border border-charcoal-900 hover:bg-charcoal-900 hover:text-cream-50
+           transition-all duration-200 tracking-wide text-sm cursor-pointer;
+  }
+
+  .btn-danger {
+    @apply bg-transparent text-red-700 font-body font-medium px-4 py-2 rounded-none
+           border border-red-300 hover:bg-red-700 hover:text-white hover:border-red-700
+           transition-all duration-200 tracking-wide text-sm cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full border border-charcoal-800/20 bg-white px-4 py-3 text-sm
+           font-body focus:outline-none focus:border-charcoal-900
+           transition-colors duration-200 rounded-none placeholder-charcoal-800/40;
+  }
+
+  .card {
+    @apply bg-white border border-charcoal-800/10 p-6 hover:border-charcoal-800/30
+           transition-all duration-300 hover:shadow-lg;
+  }
+
+  .section-label {
+    @apply text-xs font-body font-medium tracking-[0.2em] uppercase text-charcoal-800/50;
+  }
+
+  .divider {
+    @apply border-t border-charcoal-800/10 my-6;
+  }
+
+  .status-badge {
+    @apply text-xs font-mono font-medium px-2 py-1 tracking-wider uppercase;
+  }
+
+  .status-pending   { @apply bg-amber-100 text-amber-700; }
+  .status-confirmed { @apply bg-green-100 text-green-700; }
+  .status-cancelled { @apply bg-red-100 text-red-700; }
+  .status-completed { @apply bg-gray-100 text-gray-700; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f9f3e8; }
+::-webkit-scrollbar-thumb { background: #1c1917; }
+
+/* Page transitions */
+.page-enter { animation: fadeIn 0.3s ease-out; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
