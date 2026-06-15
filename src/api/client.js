@@ -1,9 +1,13 @@
 import axios from 'axios'
 
+console.log("VITE_API_URL =", import.meta.env.VITE_API_URL);
+
 const api = axios.create({
-  baseURL: '/api',
-  headers: { 'Content-Type': 'application/json' },
-})
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 // Request interceptor — har bir so'rovga token qo'shadi
 api.interceptors.request.use((config) => {
@@ -24,7 +28,7 @@ api.interceptors.response.use(
 
       if (refresh) {
         try {
-          const { data } = await axios.post('/api/auth/token/refresh/', { refresh })
+          const { data } = await api.post('/auth/token/refresh/', { refresh })
           localStorage.setItem('access_token', data.access)
           original.headers.Authorization = `Bearer ${data.access}`
           return api(original)
