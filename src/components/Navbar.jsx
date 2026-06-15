@@ -23,7 +23,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="font-display text-xl font-semibold tracking-tight text-charcoal-900">
-          Table<span className="text-amber-500">Mate</span>
+          Joy<span className="text-amber-500">Ol</span>
         </Link>
 
         {/* Desktop nav */}
